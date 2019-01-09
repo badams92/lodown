@@ -1,0 +1,22 @@
+{
+  "name": "lodown-badams92",
+  "version": "1.0.0",
+  "description": "npm library",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "istanbul cover _mocha -- test/ -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/badams92/lodown.git"
+  },
+  "author": "Ben Adams",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/badams92/lodown/issues"
+  },
+  "homepage": "https://github.com/badams92/lodown#readme"
+}
