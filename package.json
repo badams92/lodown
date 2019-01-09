@@ -18,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/badams92/lodown/issues"
   },
-  "homepage": "https://github.com/badams92/lodown#readme"
+  "homepage": "https://github.com/badams92/lodown#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "i": "^0.3.6",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "sinon": "^7.2.2"
+  }
 }
