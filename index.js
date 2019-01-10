@@ -155,9 +155,8 @@ module.exports.filter = filter;
  */
 function reject(arr, func) {
     let result = [];
-    let passing = filter(arr, func);
     each(arr, function(e, i, a) {
-        if (!contains(passing, e)) result.push(e);
+        if (!func(e, i, a)) result.push(e);
     });
     return result;
 }
@@ -262,16 +261,14 @@ module.exports.some = some;
  * element and taking into account all of the previous callback values.
  */
 function reduce(arr, func, seed) {
-    let previousResult = seed;
-    let start = 0;
-    if (typeof seed === "undefined") {
-        previousResult = arr[0];
-        start = 1;
-    } 
-    for (let i = start; i < arr.length; i++) {
-        previousResult = func(previousResult, arr[i], i);
-    }
-    return previousResult;
+    each(arr, function(e, i, a) {
+        if (seed === undefined) {
+            seed = a[0];
+        } else {
+            seed = func(seed, e, i);
+        }
+    });
+    return seed;
 }
 module.exports.reduce = reduce;
 

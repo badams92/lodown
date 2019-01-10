@@ -62,7 +62,7 @@ You'll then use your lodown library to solve problems in the next project.
         function filter(collection, test) {
             // ...code
         }
-        module.exports.each = each;
+        module.exports.filter = filter;
 
 8. Once you're done with all Functions and their docs, release your lodown library to `npm` (node package manager), following the steps in this video to do so (using your GitHub username to create a unique name for your library):
     
