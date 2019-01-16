@@ -12,11 +12,11 @@
  */
 function each(collection, action) {
     if(Array.isArray(collection)) {
-        for(var i = 0; i < collection.length; i++) {
+        for(let i = 0; i < collection.length; i++) {
             action(collection[i], i, collection);
         }
     } else {
-        for (var key in collection) {
+        for (let key in collection) {
             action(collection[key], key, collection);
         }
     }
@@ -137,7 +137,7 @@ module.exports.contains = contains;
  */
 function filter(arr, func) {
     let result = [];
-    each(arr, function(e, i, a){
+    each(arr, (e, i, a) => {
         if (func(e, i, a)) result.push(e);
     });
     return result;
@@ -155,7 +155,7 @@ module.exports.filter = filter;
  */
 function reject(arr, func) {
     let result = [];
-    each(arr, function(e, i, a) {
+    each(arr, (e, i, a) => {
         if (!func(e, i, a)) result.push(e);
     });
     return result;
@@ -189,7 +189,7 @@ module.exports.partition = partition;
  */
 function map(collection, func) {
     let result = [];
-    each(collection, function(e, i, a) {
+    each(collection, (e, i, a) => {
         result.push(func(e, i, a));
     });
     return result;
@@ -221,7 +221,7 @@ module.exports.pluck = pluck;
  */
 function every(collection, func = x => {return !!x}) {
     let myBool = true;
-    each(collection, function(e, i, a) {
+    each(collection, (e, i, a) => {
         myBool = func(e, i, a) && myBool;
     });
     return myBool;
@@ -240,7 +240,7 @@ module.exports.every = every;
  */
 function some(collection, func = x => {return !!x}) {
     let myBool = false;
-    each(collection, function(e, i, a) {
+    each(collection, (e, i, a) => {
         myBool = func(e, i, a) || myBool;
     });
     return myBool;
@@ -261,7 +261,7 @@ module.exports.some = some;
  * element and taking into account all of the previous callback values.
  */
 function reduce(arr, func, seed) {
-    each(arr, function(e, i, a) {
+    each(arr, (e, i, a) => {
         if (seed === undefined) {
             seed = a[0];
         } else {
@@ -281,10 +281,9 @@ module.exports.reduce = reduce;
  * @return {Objet}: returns obj1 with all of the additional properties
  */
 function extend(obj1, ...theArgs) {
-    each(theArgs, function(e, i, a){
-        // theArgs is an array of objects, so apply each() to each obj
-        each(e, function(prop, key, obj) {
-           obj1[key] = obj[key]; 
+    each(theArgs, (e, i, a) => {
+        each(e, (prop, key, obj) => {
+           obj1[key] = prop; 
         });
     });
     return obj1;
